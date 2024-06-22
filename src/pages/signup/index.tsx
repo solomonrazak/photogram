@@ -9,6 +9,10 @@ import { UserSignIn } from "@/types";
 // import { User } from "firebase/auth";
 import { Icons } from "@/components/ui/icons";
 import { useUserAuth } from "@/context/userAuthContext";
+import image1 from "@/assets/images/image1.jpg";
+import image2 from "@/assets/images/image2.jpg";
+import image3 from "@/assets/images/image3.jpg";
+import image4 from "@/assets/images/image4.jpg";
 
 
 interface ISignupProps {}
@@ -52,7 +56,7 @@ const Signup = ({}: ISignupProps) => {
         <div className="flex justify-center items-center w-full">
           <div className="p-6 w-2/3 hidden lg:block">
             <div className="grid grid-cols-2 gap-2">
-              {/* <img
+              <img
                 className=" w-2/3 h-auto aspect-video rounded-3xl place-self-end"
                 src={image2}
               />
@@ -66,8 +70,8 @@ const Signup = ({}: ISignupProps) => {
               />
               <img
                 className=" w-2/3 h-auto aspect-video rounded-3xl"
-                src={}
-              /> */}
+                src={image3}
+              />
             </div>
           </div>
           <div className="max-w-sm rounded-xl border bg-card text-card-foreground shadow-sm">
@@ -103,7 +107,7 @@ const Signup = ({}: ISignupProps) => {
                     <Input
                       id="email"
                       type="email"
-                      placeholder="dipesh@example.com"
+                      placeholder="solomonrazak99@gmail.com"
                       value={userInfo.email}
                       onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
                         setUserInfo({ ...userInfo, email: e.target.value })
