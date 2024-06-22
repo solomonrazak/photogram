@@ -2,19 +2,57 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@radix-ui/react-label";
-import { Icons } from "@/components/icons";
-import { Link } from "react-router-dom";
+
+import { Link, useNavigate } from "react-router-dom";
+import React, { useState } from "react";
+import { UserSignIn } from "@/types";
+// import { User } from "firebase/auth";
+import { Icons } from "@/components/ui/icons";
+import { useUserAuth } from "@/context/userAuthContext";
+
 
 interface ISignupProps {}
 
+const initialValue: UserSignIn = {
+  email: "",
+  password: "",
+  confirmPassword: "",
+}
 const Signup = ({}: ISignupProps) => {
+  const {googleSignIn, signUp} = useUserAuth()
+  const navigate = useNavigate();
+
+  const [userInfo, setUserInfo] = React.useState<UserSignIn>(initialValue);
+  
+  const handleGoogleSignIn = async (e: React.MouseEvent<HTMLButtonElement>) => {
+    e.preventDefault();
+    try {
+      await googleSignIn();
+      navigate("/")
+
+      
+    } catch (error) {
+      console.log("Error: ", error)
+    }
+
+  }
+  const handleSubmit = async (e: React.MouseEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    try {
+      console.log("The user info is: ", userInfo)
+      await signUp(userInfo.email, userInfo.password);
+      navigate("/");
+    } catch (error) {
+      console.log("Error: ", error);
+    }
+  };
   return (
     <div className="bg-slate-800 w-full h-screen">
-      <div className="container mx-auto p-6 flex h-full">
+      <div className="container mx-auto p-10 flex h-full">
         <div className="flex justify-center items-center w-full">
           <div className="p-6 w-2/3 hidden lg:block">
             <div className="grid grid-cols-2 gap-2">
-              <img
+              {/* <img
                 className=" w-2/3 h-auto aspect-video rounded-3xl place-self-end"
                 src={image2}
               />
@@ -28,8 +66,8 @@ const Signup = ({}: ISignupProps) => {
               />
               <img
                 className=" w-2/3 h-auto aspect-video rounded-3xl"
-                src={image3}
-              />
+                src={}
+              /> */}
             </div>
           </div>
           <div className="max-w-sm rounded-xl border bg-card text-card-foreground shadow-sm">
