@@ -1,11 +1,14 @@
-import { RouterProvider } from "react-router-dom"
-import router from "./routes"
+import { RouterProvider } from "react-router-dom";
+import router from "./routes";
+import { UserAuthProvider } from "./context/userAuthContext";
 
-interface IAppProps {
-
-}
+interface IAppProps {}
 
 const App = ({}: IAppProps) => {
-  return <RouterProvider router={router} />
-}
-export default App
+  return (
+    <UserAuthProvider>
+      <RouterProvider router={router} />
+    </UserAuthProvider>
+  );
+};
+export default App;
