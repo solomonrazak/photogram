@@ -147,7 +147,7 @@ const Signup = ({}: ISignupProps) => {
                     Sign Up
                   </Button>
                   <p className="mt-3 text-sm text-center">
-                    Already have an account ? <Link to="/login">Login</Link>
+                    Already have an account ? <Link to="/login"><span className="underline">Login</span></Link>
                   </p>
                 </CardFooter>
               </form>

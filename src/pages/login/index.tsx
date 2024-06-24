@@ -139,7 +139,7 @@ const Login = ({}: ILoginProps) => {
                     Login
                   </Button>
                   <p className="mt-3 text-sm text-center">
-                    Don't have an account ? <Link to="/signup">Sign up</Link>
+                    Don't have an account ? <Link to="/signup"><span className="underline">Sign up</span></Link>
                   </p>
                 </CardFooter>
               </form>

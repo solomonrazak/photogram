@@ -1,11 +1,15 @@
+import Layout from "@/components/layout";
+
 interface IHomeProps {
 
 }
 
 const Home = ({}: IHomeProps) => {
-  return <div>
-    Home
-  </div>
+  return (
+    <Layout>
+      <div>Home</div>
+    </Layout>
+  )
 }
 
 export default Home;
