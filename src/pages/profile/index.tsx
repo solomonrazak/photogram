@@ -1,8 +1,11 @@
+import Layout from "@/components/layout"
 interface IProfileProps {}
 
 const Profile = ({}: IProfileProps) => {
   return (
-    <div>index</div>
+    <Layout>
+      <div>Profile</div>
+    </Layout>
   )
 }
 

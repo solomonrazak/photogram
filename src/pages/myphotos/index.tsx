@@ -1,7 +1,12 @@
 interface IMyPhotosProps {}
+import Layout from "@/components/layout";
 
 const MyPhotos = ({}: IMyPhotosProps) => {
-  return <div>Photos</div>
-}
+  return (
+    <Layout>
+      <div>MyPhotos</div>
+    </Layout>
+  );
+};
 
 export default MyPhotos;
