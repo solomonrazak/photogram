@@ -34,6 +34,16 @@ const CreatePost = ({}: ICreatePostProps) => {
       return {cdnUrl: file.cdnUrl, uuid: file.uuid}
 
     })
+    if (user != null){ 
+      const newPost: Post = {
+        ...post,
+        userId: user?.uid || null,
+        photos: photoMeta,
+      };
+
+      console.log("The final post is : ", newPost)
+
+    }
 
   }
   return (
