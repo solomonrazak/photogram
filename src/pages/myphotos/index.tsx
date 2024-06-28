@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import { DocumentResponse, Post } from "@/types";
 import { getPostByUserId } from "@/repository/post.service";
 import { HeartIcon } from "lucide-react";
+import { Loading } from "@/components/loading/Loading";
 
 const MyPhotos = ({}: IMyPhotosProps) => {
   const { user } = useUserAuth();
@@ -66,7 +67,7 @@ const MyPhotos = ({}: IMyPhotosProps) => {
           </h3>
           <div className="p-8">
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-              {data ? renderPost() : <div>...Loading</div>}
+              {data ? renderPost() : <div><Loading /></div>}
 
             </div>
 
