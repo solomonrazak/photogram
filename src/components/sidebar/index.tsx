@@ -61,7 +61,7 @@ const Sidebar = ({}: ISidebarProps) => {
   const {pathname} = useLocation()
   return (
     <nav className="flex flex-col relative h-screen max-w-sm w-full ">
-      <div className="flex justify-center m-5">
+      <div className="flex justify-start m-5">
         <div className="text-white text-lg font-medium">PhotGram</div>
         </div>
         {navItems.map((item) => (
