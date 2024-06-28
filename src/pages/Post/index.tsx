@@ -7,10 +7,13 @@ import { useUserAuth } from "@/context/userAuthContext";
 import { useState } from "react";
 import { FileEntry, PhotoMeta } from "@/types";
 import { Post } from "@/types";
+import { createPost } from "@/repository/post.service";
+import { useNavigate } from "react-router-dom";
 interface ICreatePostProps {}
 
 const CreatePost = ({}: ICreatePostProps) => {
 
+  const navigate = useNavigate()
   const {user} = useUserAuth();
 
   const [fileEntry, setFileEntry] = useState<FileEntry>({
@@ -41,8 +44,13 @@ const CreatePost = ({}: ICreatePostProps) => {
         photos: photoMeta,
       };
 
-      console.log("The final post is : ", newPost)
+      console.log("The final post is : ", newPost);
+      await createPost(newPost);
+      navigate("/")
 
+    }
+    else {
+      navigate("login")
     }
 
   }

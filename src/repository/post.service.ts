@@ -1,5 +1,5 @@
 import { db } from "@/firebaseConfig";
-import { addDoc, collection, getDocs, orderBy, query, where } from "firebase/firestore";
+import { addDoc, collection, deleteDoc, doc, getDoc, getDocs, orderBy, query, where } from "firebase/firestore";
 import { Post } from "@/types";
 
 
@@ -19,4 +19,13 @@ export const getPostByUserId = (id: string) => {
     return getDocs(q)
 }
 
-// export const getPost = (id:)
+export const getPost = (id: string) => {
+    const docRef = doc(db, COLLECTION_NAME, id);
+    return getDoc(docRef)
+
+}
+
+export const deletePost = (id: string) => {
+    return deleteDoc(doc(db, COLLECTION_NAME, id))
+
+}
