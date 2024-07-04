@@ -8,7 +8,7 @@ import Profile from "./pages/profile";
 import MyPhotos from "./pages/myphotos";
 import ProtectedRoutes from "./components/ProtectedRoutes";
 
-export const router = createBrowserRouter([
+const router = createBrowserRouter([
 
     {
         element: <ProtectedRoutes />,
